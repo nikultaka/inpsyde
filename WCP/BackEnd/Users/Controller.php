@@ -73,15 +73,16 @@ class WCP_BackEnd_Users_Controller {
     }
 
     public function index() {
+        $plugin_name = basename( plugin_dir_path(  dirname( __FILE__ , 3 ) ) );
         ob_start();
         global $wpdb;
         
-        wp_enqueue_style('custom.css', plugins_url('website-custom-plugin/WCP/assets/css/custom.css'));
-        wp_enqueue_style('bootstrap_min.css', plugins_url('website-custom-plugin/WCP/assets/css/bootstrap.min.css'));
-        wp_enqueue_style('datatable_min.css', plugins_url('website-custom-plugin/WCP/assets/css/jquery.dataTables.min.css'));
+        wp_enqueue_style('custom.css', plugins_url($plugin_name.'/WCP/assets/css/custom.css'));
+        wp_enqueue_style('bootstrap_min.css', plugins_url($plugin_name.'/WCP/assets/css/bootstrap.min.css'));
+        wp_enqueue_style('datatable_min.css', plugins_url($plugin_name.'/WCP/assets/css/jquery.dataTables.min.css'));
         
-        wp_enqueue_script('bootstrap_min', plugins_url('website-custom-plugin/WCP/assets/js/bootstrap.min.js'));
-        wp_enqueue_script('datatables', plugins_url('website-custom-plugin/WCP/assets/js/datatables.min.js'));
+        wp_enqueue_script('bootstrap_min', plugins_url($plugin_name.'/WCP/assets/js/bootstrap.min.js'));
+        wp_enqueue_script('datatables', plugins_url($plugin_name.'/WCP/assets/js/datatables.min.js'));
         
         include(dirname(__FILE__) . "/html/user_list.php");
         $s = ob_get_contents();
