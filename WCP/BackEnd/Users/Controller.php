@@ -1,8 +1,5 @@
 <?php
 
-include_once(dirname(__FILE__) . "/View.php");
-include_once(dirname(__FILE__) . "/Helper.php");
-
 class WCP_BackEnd_Users_Controller {
 
     public function get_data() {
